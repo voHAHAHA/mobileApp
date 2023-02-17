@@ -48,7 +48,7 @@
         android:layout_height="61dp"
         android:layout_marginTop="28dp"
         android:onClick="onClickStart"
-        android:text="Start"
+        android:text="@string/Start"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"

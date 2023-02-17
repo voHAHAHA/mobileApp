@@ -29,29 +29,26 @@ public class TrafficLight extends AppCompatActivity {
     public void onClickStart(View view) {
         if (!startAndStop) {
             startAndStop = true;
-            btnMain.setText("Stop");
+            btnMain.setText(getText(R.string.Stop));
             new Thread(new Runnable() {
                 @Override
                 public void run() {
                     while (startAndStop) {
                         count++;
-                        switch(count) {
-                            case 1:
-                                linearLayout.setBackgroundColor(getColor(R.color.Green));
-                                linearLayout2.setBackgroundColor(getColor(R.color.black));
-                                linearLayout3.setBackgroundColor(getColor(R.color.black ));
-                                break;
-                            case 2:
-                                linearLayout.setBackgroundColor(getColor(R.color.black));
-                                linearLayout2.setBackgroundColor(getColor(R.color.Yellow));
-                                linearLayout3.setBackgroundColor(getColor(R.color.black ));
-                                break;
-                            case 3:
-                                linearLayout.setBackgroundColor(getColor(R.color.black));
-                                linearLayout2.setBackgroundColor(getColor(R.color.black));
-                                linearLayout3.setBackgroundColor(getColor(R.color.Red ));
-                                count = 0;
-                                break;
+                        if (count == 0 || count == 1 || count == 2 || count == 3 || count == 4) {
+                            linearLayout.setBackgroundColor(getColor(R.color.Green));
+                            linearLayout2.setBackgroundColor(getColor(R.color.black));
+                            linearLayout3.setBackgroundColor(getColor(R.color.black));
+                        } else if (count == 5 || count == 6) {
+                            linearLayout.setBackgroundColor(getColor(R.color.black));
+                            linearLayout2.setBackgroundColor(getColor(R.color.Yellow));
+                            linearLayout3.setBackgroundColor(getColor(R.color.black));
+                        } else if (count == 7 || count == 8 || count == 9 || count == 10 || count == 11) {
+                            linearLayout.setBackgroundColor(getColor(R.color.black));
+                            linearLayout2.setBackgroundColor(getColor(R.color.black));
+                            linearLayout3.setBackgroundColor(getColor(R.color.Red));
+                        } else {
+                            count = 0;
                         }
                         try {
                             Thread.sleep(1000);
@@ -63,7 +60,7 @@ public class TrafficLight extends AppCompatActivity {
             }).start();
         } else {
             startAndStop = false;
-            btnMain.setText("Start");
+            btnMain.setText(getText(R.string.Start));
         }
     }
     @Override
